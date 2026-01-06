@@ -1,5 +1,5 @@
 // Navigation functionality
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const navLinks = document.querySelectorAll('.nav-link');
     const sections = document.querySelectorAll('.content-section');
     const seanceLinks = document.querySelectorAll('.seance-link');
@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Add click event listeners to nav links
     navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
+        link.addEventListener('click', function (e) {
             e.preventDefault();
             const sectionId = this.getAttribute('data-section');
             showSection(sectionId);
@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Add click event listeners to seance links
     seanceLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
+        link.addEventListener('click', function (e) {
             e.preventDefault();
             const seanceNumber = this.getAttribute('data-seance');
             showSeance(seanceNumber);
@@ -96,16 +96,20 @@ document.addEventListener('DOMContentLoaded', function() {
                     title: "Communication Interpersonnelle",
                     sections: [
                         {
-                            title: "Types",
-                            points: ["Verbale", "Non verbale", "Paraverbale (Message, Attitude, Ton)"]
+                            title: "Fondamentaux",
+                            points: ["Écoute active", "Reformulation", "Empathie", "Gestion de conflit", "Communication relationnelle"]
                         },
                         {
-                            title: "Processus",
-                            points: ["Émetteur / Récepteur", "Message / Code / Canal", "Contexte / Feedback", "Bruit / Parasites"]
+                            title: "Outils d'Analyse",
+                            points: ["Matrice d’identité (Dilts): Environnement, Comportements, Capacités, Croyances, Mission", "Quadrant d’Ofman: Qualité, Piège, Défi, Allergie"]
                         },
                         {
-                            title: "Interactions Clés",
-                            points: ["Écoute active", "Reformulation", "Empathie", "Gestion de conflit"]
+                            title: "Postures & Assertivité",
+                            points: ["Postures: Passif, Agressif, Manipulateur, Assertif", "Dire 'oui/non' clairement", "Formules: « Je ressens… », « Je propose… »"]
+                        },
+                        {
+                            title: "Obstacles",
+                            points: ["Jugements / préjugés", "Manque d’écoute", "Émotions non gérées", "Bruit / mauvais canal"]
                         }
                     ]
                 }
@@ -119,15 +123,11 @@ document.addEventListener('DOMContentLoaded', function() {
                     sections: [
                         {
                             title: "Dialogue intérieur",
-                            points: ["Pensées & Émotions", "Résilience", "Gestion du stress"]
+                            points: ["Pensées", "Émotions", "Résilience"]
                         },
                         {
                             title: "Mini outils",
-                            points: ["Reformulation interne", "Ancrage positif"]
-                        },
-                        {
-                            title: "Schéma de communication",
-                            points: ["Modèle simple", "Impact des pensées sur les actions"]
+                            points: ["Reformulation interne", "Gestion du stress"]
                         }
                     ]
                 }
@@ -140,12 +140,16 @@ document.addEventListener('DOMContentLoaded', function() {
                     title: "La Matrice de l’Excellence",
                     sections: [
                         {
-                            title: "Composantes",
-                            points: ["Savoir (Connaissances)", "Savoir-faire (Compétences)", "Savoir-être (Attitudes)"]
+                            title: "Matrice de l’excellence",
+                            points: ["Savoir (Connaissances)", "Savoir-faire (Compétences)", "Savoir-être (Attitudes)", "Objectif: progresser et performer"]
                         },
                         {
-                            title: "Objectif",
-                            points: ["Progresser et performer", "Développement continu"]
+                            title: "Comportements",
+                            points: ["Microcomportement", "Macrocomportement", "Réactions observables", "Lien direct avec l’impact relationnel"]
+                        },
+                        {
+                            title: "Actions",
+                            points: ["Proaction: prévenir / anticiper", "Réaction: subir / répondre à chaud", "Action: Agir concrètement"]
                         }
                     ]
                 }
@@ -159,15 +163,11 @@ document.addEventListener('DOMContentLoaded', function() {
                     sections: [
                         {
                             title: "Compétences du 21ᵉ siècle",
-                            points: ["Communication & Collaboration", "Esprit critique", "Créativité", "Adaptabilité"]
+                            points: ["Communication", "Collaboration", "Esprit critique", "Créativité", "Adaptabilité"]
                         },
                         {
-                            title: "Assertivité",
-                            points: ["Dire 'oui / non' clairement", "Exprimer ses besoins (Je ressens...)", "Respect de soi et de l'autre"]
-                        },
-                        {
-                            title: "Postures",
-                            points: ["Passif", "Agressif", "Manipulateur", "Assertif (Objectif)"]
+                            title: "Index de computation",
+                            points: ["Analyser : charge / effort mental", "Complexité des messages", "Clarté & simplification"]
                         }
                     ]
                 }
@@ -180,16 +180,12 @@ document.addEventListener('DOMContentLoaded', function() {
                     title: "Communication Professionnelle",
                     sections: [
                         {
-                            title: "Gestion d'équipe",
-                            points: ["Rôles & coopération", "Feedback constructif", "Objectifs communs (SMART)"]
+                            title: "Gestion d’équipe",
+                            points: ["Rôles & coopération", "Feedback constructif", "Objectifs communs", "Lien avec l’excellence"]
                         },
                         {
-                            title: "Gestion des obstacles",
-                            points: ["Jugements / préjugés", "Manque d'écoute", "Bruit / mauvais canal"]
-                        },
-                        {
-                            title: "Situations difficiles",
-                            points: ["Patron abusif (Poser des limites, Rester factuel)", "Gestion de crise"]
+                            title: "Situations difficiles (Patron abusif)",
+                            points: ["Poser des limites", "Rester factuel", "Documenter / demander soutien", "Utiliser l’assertivité"]
                         }
                     ]
                 }
@@ -204,7 +200,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const detailsTitle = document.getElementById('details-title');
         const detailsBody = document.getElementById('details-body');
         const closeBtn = document.getElementById('close-details');
-        
+
         if (!container) return;
 
         // Clear existing
@@ -229,7 +225,7 @@ document.addEventListener('DOMContentLoaded', function() {
         mindMapData.branches.forEach((branch, index) => {
             const angle = startAngle + (index * angleStep);
             const radian = (angle * Math.PI) / 180;
-            
+
             // Calculate percentage positions for responsiveness
             const x = 50 + (Math.cos(radian) * 35); // 35% from center
             const y = 50 + (Math.sin(radian) * 35); // 35% from center
@@ -240,18 +236,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 <i class="${branch.icon}"></i>
                 <span>${branch.title.replace(/\n/g, '<br>')}</span>
             `;
-            
+
             // Set position
             node.style.left = `${x}%`;
             node.style.top = `${y}%`;
-            
+
             // Add interaction
-            node.addEventListener('click', () => {
+            node.addEventListener('mouseenter', () => {
                 showDetails(branch);
                 highlightNode(node);
-            });
-
-            node.addEventListener('mouseenter', () => {
                 highlightConnection(index);
             });
 
@@ -270,11 +263,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Update lines function
         function updateLines() {
-             if (window.innerWidth <= 968) return; // Don't draw lines on mobile/vertical view
+            if (window.innerWidth <= 968) return; // Don't draw lines on mobile/vertical view
 
             const centralRect = centralNode.getBoundingClientRect();
             const containerRect = container.getBoundingClientRect();
-            
+
             const centerX = centralRect.left + centralRect.width / 2 - containerRect.left;
             const centerY = centralRect.top + centralRect.height / 2 - containerRect.top;
 
@@ -287,7 +280,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const nodeY = nodeRect.top + nodeRect.height / 2 - containerRect.top;
 
                 const line = lines[index];
-                if(line) {
+                if (line) {
                     line.setAttribute('x1', centerX);
                     line.setAttribute('y1', centerY);
                     line.setAttribute('x2', nodeX);
@@ -299,7 +292,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Show details function
         function showDetails(branch) {
             detailsTitle.innerHTML = `<i class="${branch.icon}"></i> ${branch.content.title}`;
-            
+
             let html = '<div class="details-grid">';
             branch.content.sections.forEach(section => {
                 html += `
@@ -312,12 +305,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 `;
             });
             html += '</div>';
-            
+
             detailsBody.innerHTML = html;
             detailsPanel.classList.remove('hidden');
-            
+
             // Scroll to details
-            detailsPanel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            // detailsPanel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         }
 
         function highlightNode(activeNode) {
@@ -327,7 +320,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         function highlightConnection(index) {
             const lines = document.querySelectorAll('.connection-line');
-            if(lines[index]) lines[index].classList.add('active');
+            if (lines[index]) lines[index].classList.add('active');
         }
 
         function resetConnections() {
@@ -344,10 +337,10 @@ document.addEventListener('DOMContentLoaded', function() {
         // Wait for layout
         setTimeout(updateLines, 100);
         window.addEventListener('resize', updateLines);
-        
+
         // Also update lines when tab becomes visible (in case it was hidden)
         const observer = new IntersectionObserver((entries) => {
-            if(entries[0].isIntersecting) {
+            if (entries[0].isIntersecting) {
                 updateLines();
             }
         });

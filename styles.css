@@ -132,6 +132,7 @@ body {
         opacity: 0;
         transform: translateY(20px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -1018,3 +1019,370 @@ body {
     }
 }
 
+
+/* Team Roles Section - Premium Design */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+    margin-top: 3rem;
+    padding: 1rem;
+}
+
+.team-card {
+    background: white;
+    border-radius: 24px;
+    box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    height: 100%;
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.team-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.15);
+}
+
+/* Card Header/Background styling based on Category */
+.team-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 140px;
+    z-index: 0;
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+}
+
+.action-category::before {
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+}
+
+.relation-category::before {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+}
+
+.mixte-category::before {
+    background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
+    /* Purple */
+}
+
+/* Card Front Layout */
+.card-front {
+    position: relative;
+    z-index: 1;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}
+
+.member-icon {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    background: white;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    color: var(--text-dark);
+    border: 4px solid white;
+}
+
+.action-category .member-icon {
+    color: #2563eb;
+}
+
+.relation-category .member-icon {
+    color: #059669;
+}
+
+.mixte-category .member-icon {
+    color: #7c3aed;
+}
+
+.card-front h3 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin: 0 0 0.5rem;
+    color: var(--text-dark);
+    text-align: center;
+}
+
+.role-badge {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: #f8fafc;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin-bottom: 1rem;
+    font-weight: 600;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.category-label {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    padding: 0.4rem 1rem;
+    border-radius: 30px;
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: white;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Hover Details - Glassmorphism Overlay */
+.card-details {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 2rem;
+    transform: translateY(100%);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 5;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    height: auto;
+    max-height: 70%;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    opacity: 1;
+    /* Always visible to layout, just moved out */
+    visibility: visible;
+}
+
+.team-card:hover .card-details {
+    transform: translateY(0);
+}
+
+.card-details h4 {
+    margin-bottom: 1.25rem;
+    color: var(--text-dark);
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.card-details h4::before {
+    content: '';
+    display: block;
+    width: 4px;
+    height: 1.2em;
+    background: var(--primary-color);
+    border-radius: 2px;
+}
+
+.action-category .card-details h4::before {
+    background: #2563eb;
+}
+
+.relation-category .card-details h4::before {
+    background: #059669;
+}
+
+.mixte-category .card-details h4::before {
+    background: #7c3aed;
+}
+
+.card-details ul {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+    text-align: left;
+}
+
+.card-details li {
+    font-size: 0.95rem;
+    margin-bottom: 0.75rem;
+    padding-left: 0;
+    color: var(--text-light);
+    line-height: 1.5;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+}
+
+.card-details li::before {
+    content: "→";
+    font-weight: bold;
+    opacity: 0.7;
+}
+
+.action-category .card-details li::before {
+    color: #2563eb;
+}
+
+.relation-category .card-details li::before {
+    color: #059669;
+}
+
+.mixte-category .card-details li::before {
+    color: #7c3aed;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+    .team-grid {
+        grid-template-columns: 1fr;
+        padding: 0;
+    }
+
+    .team-card {
+        min-height: auto;
+    }
+
+    .team-card::before {
+        height: 100px;
+    }
+
+    .card-details {
+        position: relative;
+        transform: none;
+        background: transparent;
+        padding: 0 2rem 2rem 2rem;
+        backdrop-filter: none;
+        border-top: none;
+        border-top: 1px dashed #e2e8f0;
+        margin-top: 1rem;
+        max-height: none;
+    }
+}
+
+
+/* Activities Section - Premium Design */
+.activities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 3rem;
+    margin-top: 4rem;
+    padding: 1rem;
+}
+
+.activity-card {
+    background: white;
+    border-radius: 24px;
+    padding: 3rem 2rem;
+    box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.08);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.activity-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    background: linear-gradient(90deg, #3b82f6, #8b5cf6, #ec4899);
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.5s ease;
+}
+
+.activity-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+}
+
+.activity-card:hover::before {
+    transform: scaleX(1);
+}
+
+.activity-icon {
+    width: 90px;
+    height: 90px;
+    border-radius: 24px;
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+    transition: all 0.5s ease;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    transform: rotate(-5deg);
+}
+
+.activity-card:hover .activity-icon {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    color: white;
+    transform: rotate(0deg) scale(1.1);
+    box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.3);
+}
+
+.activity-content {
+    width: 100%;
+}
+
+.activity-content h3 {
+    font-size: 1.6rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    color: var(--text-dark);
+    line-height: 1.3;
+}
+
+.activity-content p,
+.activity-content li {
+    color: var(--text-light);
+    line-height: 1.7;
+    font-size: 0.95rem;
+}
+
+.activity-content ul,
+.activity-content ol {
+    text-align: left;
+    margin-bottom: 1.5rem;
+    padding-left: 1rem;
+    list-style-position: inside;
+}
+
+.activity-content li {
+    margin-bottom: 0.5rem;
+}
+
+.activity-content strong {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+/* Responsive for Activites */
+@media (max-width: 640px) {
+    .activities-grid {
+        grid-template-columns: 1fr;
+    }
+}
